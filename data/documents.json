@@ -1,0 +1,37 @@
+[
+  {
+    "id": "order_returns",
+    "title": "Returns and Refunds Policy",
+    "content": "We accept returns within 30 days of purchase. Items must be unused and in original packaging. Refunds are processed within 5-7 business days after inspection. Shipping costs are non-refundable unless the item arrived damaged."
+  },
+  {
+    "id": "shipping",
+    "title": "Shipping and Delivery Information",
+    "content": "Standard shipping takes 5-7 business days (free). Express shipping takes 2-3 business days ($15). Overnight shipping available ($30). We ship Monday-Friday. Free shipping on orders over $50. Tracking numbers provided for all orders."
+  },
+  {
+    "id": "billing",
+    "title": "Billing and Payment FAQ",
+    "content": "We accept all major credit cards (Visa, MasterCard, American Express), PayPal, Apple Pay, and Google Pay. Invoices are sent via email after purchase. For billing disputes or issues, contact billing@example.com. Payment is secure and encrypted with SSL."
+  },
+  {
+    "id": "technical_support",
+    "title": "Technical Support and Troubleshooting",
+    "content": "For technical issues: 1) Restart your device, 2) Clear your browser cache, 3) Try a different browser. Contact support@example.com for persistent issues. Response time is typically within 2-4 hours during business hours (9am-5pm EST)."
+  },
+  {
+    "id": "account",
+    "title": "Account Management and Security",
+    "content": "You can update your account information anytime in your profile settings. Password reset available via 'Forgot Password' link. Enable two-factor authentication for security. Account deletion available by contacting support. We never share your data with third parties."
+  },
+  {
+    "id": "warranty",
+    "title": "Product Warranty Information",
+    "content": "All products come with a 1-year manufacturer's warranty covering defects. Warranty covers manufacturing defects, not damage from misuse. Warranty claims processed through our support team. Extended warranty plans available for additional protection."
+  },
+  {
+    "id": "product_quality",
+    "title": "Product Quality and Guarantees",
+    "content": "All products undergo quality inspection before shipping. We guarantee satisfaction or your money back within 30 days. Damaged items are replaced free of charge. Quality issues can be reported to quality@example.com with photos for faster resolution."
+  }
+]

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Agent - Test & Inbox</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-content">
+                <h1 class="logo">📧 Customer Support Email Agent</h1>
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showTestPage()" class="active">Test</a></li>
+                    <li><a href="#" onclick="showInboxPage()">Inbox</a></li>
+                    <li><a href="#" onclick="showStatsPage()">Stats</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Test Page -->
+        <div id="testPage" class="page active">
+            <div class="content-wrapper">
+                <h2>Test Email Processing</h2>
+                <p class="subtitle">Send a test email to see the agent in action</p>
+
+                <div class="test-container">
+                    <form id="emailForm" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="sender">From (Customer Email)</label>
+                            <input type="email" id="sender" required
+                                placeholder="customer@example.com" value="customer@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipient">To (Support Email)</label>
+                            <input type="email" id="recipient" required
+                                placeholder="support@example.com" value="support@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required
+                                placeholder="e.g., Issue with my order"
+                                value="Can I return my order?">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="body">Message</label>
+                            <textarea id="body" required rows="6"
+                                placeholder="Enter your message here..."
+                                >I received my order yesterday but the item arrived damaged. The packaging was ripped open. I would like to return it and get a refund or replacement. Please let me know what I need to do.</textarea>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="submit" class="btn btn-primary" id="submitBtn">
+                                Send Test Email
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="loadSampleEmail(1)">
+                                Sample 1: Return
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="loadSampleEmail(2)">
+                                Sample 2: Shipping
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="loadSampleEmail(3)">
+                                Sample 3: Support
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Results Section -->
+                    <div id="resultsSection" class="results-section" style="display: none;">
+                        <h3>Processing Results</h3>
+
+                        <div class="loading" id="loadingIndicator" style="display: none;">
+                            <div class="spinner"></div>
+                            <p>Processing email...</p>
+                        </div>
+
+                        <div id="resultsContent" style="display: none;">
+                            <div class="result-grid">
+                                <div class="result-card">
+                                    <h4>Intent Detected</h4>
+                                    <p class="result-value" id="resultIntent">-</p>
+                                    <p class="result-confidence">Confidence: <span id="resultConfidence">-</span></p>
+                                </div>
+
+                                <div class="result-card">
+                                    <h4>Status</h4>
+                                    <p class="result-value" id="resultStatus">-</p>
+                                </div>
+
+                                <div class="result-card">
+                                    <h4>Requires Review</h4>
+                                    <p class="result-value" id="resultReview">-</p>
+                                </div>
+
+                                <div class="result-card">
+                                    <h4>Email ID</h4>
+                                    <p class="result-value monospace" id="resultId">-</p>
+                                </div>
+                            </div>
+
+                            <div class="response-box">
+                                <h4>Generated Response</h4>
+                                <div id="resultResponse" class="response-content">
+                                    -
+                                </div>
+                            </div>
+
+                            <div class="knowledge-box" id="knowledgeBox" style="display: none;">
+                                <h4>📚 Retrieved Knowledge Base Documents</h4>
+                                <div id="knowledgeContent"></div>
+                            </div>
+
+                            <button class="btn btn-primary" onclick="viewEmailDetail()">
+                                View in Inbox
+                            </button>
+                        </div>
+
+                        <div id="errorContent" style="display: none;" class="error-message">
+                            <p id="errorText"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inbox Page -->
+        <div id="inboxPage" class="page">
+            <div class="content-wrapper">
+                <h2>Email Inbox</h2>
+                <p class="subtitle">View all processed emails and agent responses</p>
+
+                <div class="inbox-container">
+                    <div class="inbox-list" id="inboxList">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <p>Loading emails...</p>
+                        </div>
+                    </div>
+
+                    <div class="email-detail" id="emailDetailPanel" style="display: none;">
+                        <button class="btn btn-secondary" onclick="closeEmailDetail()">← Back</button>
+                        <div id="emailDetailContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Page -->
+        <div id="statsPage" class="page">
+            <div class="content-wrapper">
+                <h2>System Statistics</h2>
+                <p class="subtitle">Overview of email processing metrics</p>
+
+                <div class="stats-container" id="statsContent">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Loading statistics...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
